@@ -1,4 +1,6 @@
 import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddCraftItem = () => {
   const handleAddCraft=event=>{
@@ -43,6 +45,9 @@ const AddCraftItem = () => {
     .then(res=>res.json())
     .then(data=>{
       console.log(data)
+      if(data.insertedId){
+        toast.success("Successfully Added!");
+      }
     })
 
 
@@ -115,6 +120,7 @@ const AddCraftItem = () => {
           </div>
         </form>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
     );
 };
