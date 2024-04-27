@@ -23,7 +23,8 @@ const router = createBrowserRouter([
     element: <MainLayOut></MainLayOut>,
     children:[
       { path: "/",
-      element: <Home></Home>
+      element: <Home></Home>,
+      loader:()=>fetch('http://localhost:5000/data')
     },
     { path: "/AddCraftItem",
     element: <AddCraftItem></AddCraftItem>
