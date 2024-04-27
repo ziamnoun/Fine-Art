@@ -8,6 +8,7 @@ const Navbar = () => {
   <li><NavLink to='/AllPaintingAndDrawing' className={({isActive})=> isActive?  ' border-solid border-2 border-black text-white bg-red-600 px-4 py-2 rounded-md transition-colors duration-300 ease-in-out hover:bg-gray-600 hover:text-white' :'text-white border-2 border-red-600'}>All Drawing and Painting Items</NavLink></li>
   <li><NavLink to='/ViewDetails' className={({isActive})=> isActive?  ' border-solid border-2 border-black text-white bg-red-600 px-4 py-2 rounded-md transition-colors duration-300 ease-in-out hover:bg-gray-600 hover:text-white' :'text-white border-2 border-red-600'}>View Details Page</NavLink></li>
   <li><NavLink to='/MyPaintingAndDrawing' className={({isActive})=> isActive?  ' border-solid border-2 border-black text-white bg-red-600 px-4 py-2 rounded-md transition-colors duration-300 ease-in-out hover:bg-gray-600 hover:text-white' :'text-white border-2 border-red-600'}>My Art List</NavLink></li>
+  <li><NavLink to='/Update' className={({isActive})=> isActive?  ' border-solid border-2 border-black text-white bg-red-600 px-4 py-2 rounded-md transition-colors duration-300 ease-in-out hover:bg-gray-600 hover:text-white' :'text-white border-2 border-red-600'}>Update</NavLink></li>
  
  </>
 

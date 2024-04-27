@@ -15,6 +15,7 @@ import MyPaintingAndDrawing from "./assets/My_Painting_drawing/MyPaintingAndDraw
 import AllPaintingAndDrawing from "./assets/All_PAINTING_DRAWING_ITEM/AllPaintingAndDrawing";
 import Register from "./assets/Register";
 import LogIn from "./assets/LogIn";
+import Update from "./assets/Update/Update";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,9 @@ element: <LogIn></LogIn>
 },
 { path:"/Register",
 element: <Register></Register>
+},
+{ path:"/Update",
+element: <Update></Update>
 },
 
     
