@@ -19,7 +19,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar bg-black">
+        <div className="navbar bg-gradient-to-b from-black to-purple-800">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -36,8 +36,10 @@ const Navbar = () => {
           {links}
           </ul>
         </div>
-        <div className="navbar-end">
-          <a className="btn">Button</a>
+        <div className="navbar-end gap-2">
+          
+      <NavLink to="/LogIn"><a className="btn border-2 text-red-600 border-red-600 bg-black">Log In</a></NavLink>
+      <NavLink to="/Register"><a className="btn bg-red-600 text-white border-2 border-black">Register</a></NavLink>
         </div>
       </div>
     );

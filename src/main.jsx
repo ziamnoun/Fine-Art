@@ -13,6 +13,8 @@ import ViewDetails from "./assets/ViewDetails/ViewDetails";
 import MyArtAndCraft from "./assets/My_Painting_drawing/MyPaintingAndDrawing";
 import MyPaintingAndDrawing from "./assets/My_Painting_drawing/MyPaintingAndDrawing";
 import AllPaintingAndDrawing from "./assets/All_PAINTING_DRAWING_ITEM/AllPaintingAndDrawing";
+import Register from "./assets/Register";
+import LogIn from "./assets/LogIn";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +36,13 @@ element: <ViewDetails></ViewDetails>
 { path: "/MyPaintingAndDrawing",
 element: <MyPaintingAndDrawing></MyPaintingAndDrawing>
 },
+{ path: "/LogIn",
+element: <LogIn></LogIn>
+},
+{ path:"/Register",
+element: <Register></Register>
+},
+
     
     ]
   },
