@@ -10,7 +10,19 @@ const Home = () => {
     return (
         <div>
           <Banner></Banner> 
-          <div className="div mt-5 grid md:grid-cols-3 grid-cols-1 gap-3 mx-auto md:w-[80%]">
+
+          <div className="flex justify-center items-center mt-10">
+      <div className="text-center text-white">
+      <p className="text-lg">Explore our curated collection of Drawing and Painting</p>
+        <h1 className="text-xl font-bold mb-4">Unleash your imagination with our diverse collection of drawing and painting supplies, curated to fuel your artistic passion and bring your visions to life.</h1>
+        <p className="text-lg">Check below for more:</p>
+      </div>
+    </div>
+
+
+
+
+          <div className="div mt-10 grid md:grid-cols-3 grid-cols-1 gap-3 mx-auto md:w-[80%]">
          {
           AllCraftItem.map(item=>(
             <div className="card w-96 glass bg-black text-white">
