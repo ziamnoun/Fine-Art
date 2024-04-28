@@ -33,7 +33,7 @@ const Home = () => {
               <p><strong>Price:</strong> {item.price}</p>
               <p><strong>Rating:</strong>{item.rating}</p>
               <div className="card-actions justify-end">
-                <button className="btn btn-primary bg-red-600">View Details</button>
+               <NavLink to={`/ViewDetails/${item._id}`}> <button className="btn btn-primary bg-red-600">View Details</button></NavLink>
                <NavLink to={`/Update/${item._id}`}> <button className="btn btn-primary bg-red-600">Update Craft</button></NavLink>
               </div>
             </div>

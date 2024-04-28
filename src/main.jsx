@@ -32,8 +32,10 @@ const router = createBrowserRouter([
   { path: "/AllPaintingAndDrawing",
   element: <AllPaintingAndDrawing></AllPaintingAndDrawing>
 },
-{ path: "/ViewDetails",
-element: <ViewDetails></ViewDetails>
+{ path: "/ViewDetails/:id",
+element: <ViewDetails></ViewDetails>,
+loader:({params})=>fetch(`http://localhost:5000/data/${params.id}`)
+
 },
 { path: "/MyPaintingAndDrawing",
 element: <MyPaintingAndDrawing></MyPaintingAndDrawing>
