@@ -1,6 +1,6 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
-import { useLoaderData } from 'react-router-dom';
+import { NavLink, useLoaderData } from 'react-router-dom';
 
 const Home = () => {
   const AllCraftItem=useLoaderData();
@@ -22,7 +22,7 @@ const Home = () => {
 
 
 
-          <div className="div mt-10 grid md:grid-cols-3 grid-cols-1 gap-3 mx-auto md:w-[80%]">
+          <div className="div mt-10 grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-3 mx-auto md:w-[80%]">
          {
           AllCraftItem.map(item=>(
             <div className="card w-96 glass bg-black text-white">
@@ -34,6 +34,7 @@ const Home = () => {
               <p><strong>Rating:</strong>{item.rating}</p>
               <div className="card-actions justify-end">
                 <button className="btn btn-primary bg-red-600">View Details</button>
+               <NavLink to={`/Update/${item._id}`}> <button className="btn btn-primary bg-red-600">Update Craft</button></NavLink>
               </div>
             </div>
           </div>

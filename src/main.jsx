@@ -44,8 +44,10 @@ element: <LogIn></LogIn>
 { path:"/Register",
 element: <Register></Register>
 },
-{ path:"/Update",
-element: <Update></Update>
+{ path:"/Update/:id",
+element: <Update></Update>,
+loader:({params})=>fetch(`http://localhost:5000/data/${params.id}`)
+
 },
 
     
