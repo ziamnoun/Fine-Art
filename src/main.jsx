@@ -16,6 +16,11 @@ import AllPaintingAndDrawing from "./assets/All_PAINTING_DRAWING_ITEM/AllPaintin
 import Register from "./assets/Register";
 import LogIn from "./assets/LogIn";
 import Update from "./assets/Update/Update";
+import PrivateRoute from "./assets/PrivateRoute";
+
+
+
+
 
 const router = createBrowserRouter([
   {
@@ -27,18 +32,18 @@ const router = createBrowserRouter([
       loader:()=>fetch('http://localhost:5000/data')
     },
     { path: "/AddCraftItem",
-    element: <AddCraftItem></AddCraftItem>
+    element: <PrivateRoute><AddCraftItem></AddCraftItem></PrivateRoute>
   },
   { path: "/AllPaintingAndDrawing",
   element: <AllPaintingAndDrawing></AllPaintingAndDrawing>
 },
 { path: "/ViewDetails/:id",
-element: <ViewDetails></ViewDetails>,
+element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
 loader:({params})=>fetch(`http://localhost:5000/data/${params.id}`)
 
 },
 { path: "/MyPaintingAndDrawing",
-element: <MyPaintingAndDrawing></MyPaintingAndDrawing>
+element: <PrivateRoute><MyPaintingAndDrawing></MyPaintingAndDrawing></PrivateRoute>
 },
 { path: "/LogIn",
 element: <LogIn></LogIn>
@@ -58,7 +63,7 @@ loader:({params})=>fetch(`http://localhost:5000/data/${params.id}`)
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
+  <React.StrictMode>  
+   <RouterProvider router={router} />
   </React.StrictMode>
 );
