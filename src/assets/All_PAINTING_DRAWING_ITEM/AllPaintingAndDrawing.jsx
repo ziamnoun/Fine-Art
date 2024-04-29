@@ -38,7 +38,7 @@ const AllPaintingAndDrawing = () => {
             <td>{item.subcategoryName}</td>
             <td>{item.price}</td>
             <td>
-              <Link to={`/ViewDetails/${item._id}`} className="btn btn-primary">
+              <Link to={`/ViewDetails/${item._id}`} className="btn btn-primary bg-red-600">
                 View Details
               </Link>
             </td>

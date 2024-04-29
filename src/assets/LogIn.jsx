@@ -1,9 +1,48 @@
+import { GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import React from 'react';
 import { FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
+import auth from '../firebase/firebase.config';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 const LogIn = () => {
+  const googleProvider=new GoogleAuthProvider()
+  const githubProvider=new GithubAuthProvider()
+
+
+
+
+  const handleGoogleLogIn=()=>{
+    signInWithPopup(auth,googleProvider)
+    .then(result=>{
+      toast.success(Log in Successful);
+
+    })
+    .catch(error=>{
+      toast.error('Failed to Sign In');
+    }
+    )
+
+  }
+  const handleGithubLogIn=()=>{
+    signInWithPopup(auth,githubProvider)
+    .then(result=>{
+      toast.success(Log in Successful);
+
+    })
+    .catch(error=>{
+      toast.error('Failed to Sign In');
+    })
+
+  }
+
+
+
+
+
     return (
         <div className="min-h-screen flex items-center justify-center ">
         <div className="max-w-md w-full px-6 py-8 bg-gray-900 rounded-lg shadow-lg">
@@ -26,14 +65,15 @@ const LogIn = () => {
               <button type="submit" className="w-full px-4 py-2 text-white bg-red-500 rounded hover:bg-red-600 focus:outline-none focus:bg-red-600">Log In</button>
             </div>
             <div className="flex items-center justify-between">
-              <button type="button" className="px-4 py-2 btn btn-warning rounded hover:bg-red-600 focus:outline-none focus:bg-red-600"><FaGoogle />Login with Google</button>
-              <button type="button" className="px-4 py-2 text-white btn btn-active btn-neutral hover:bg-red-600 focus:outline-none focus:bg-red-600"><FaGithub />Login with GitHub</button>
+              <button onClick={handleGoogleLogIn} type="button" className="px-4 py-2 btn btn-warning rounded hover:bg-red-600 focus:outline-none focus:bg-red-600"><FaGoogle />Login with Google</button>
+              <button onClick={handleGithubLogIn} type="button" className="px-4 py-2 text-white btn btn-active btn-neutral hover:bg-red-600 focus:outline-none focus:bg-red-600"><FaGithub />Login with GitHub</button>
             </div>
           </form>
           <p className="text-center text-white mt-2">
             Don't have an account? <NavLink to="/Register" className="underline">Register Now</NavLink>
           </p>
         </div>
+        <ToastContainer></ToastContainer>
       </div>
     );
 };
