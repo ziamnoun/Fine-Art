@@ -1,5 +1,5 @@
-import { GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import React from 'react';
+import { GithubAuthProvider, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import React, { useState } from 'react';
 import { FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
@@ -8,9 +8,12 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
+
 const LogIn = () => {
+  const [user,setUser]=useState(null);
   const googleProvider=new GoogleAuthProvider()
   const githubProvider=new GithubAuthProvider()
+
 
 
 
@@ -19,6 +22,7 @@ const LogIn = () => {
     signInWithPopup(auth,googleProvider)
     .then(result=>{
       toast.success(Log in Successful);
+      setUser(result.user)
 
     })
     .catch(error=>{
@@ -31,6 +35,8 @@ const LogIn = () => {
     signInWithPopup(auth,githubProvider)
     .then(result=>{
       toast.success(Log in Successful);
+      setUser(result.user)
+
 
     })
     .catch(error=>{
@@ -40,6 +46,24 @@ const LogIn = () => {
   }
 
 
+  const handleLogIn = e => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+  signInWithEmailAndPassword(auth,email,password)
+      .then(result => {
+        console.log(result.user);
+        toast.success('Login successful');
+        setUser(result.user)
+
+      })
+      .catch(error => {
+        console.error(error);
+        toast.error('Invalid email or password');
+      });
+  };
+
+
 
 
 
@@ -47,7 +71,7 @@ const LogIn = () => {
         <div className="min-h-screen flex items-center justify-center ">
         <div className="max-w-md w-full px-6 py-8 bg-gray-900 rounded-lg shadow-lg">
           <h2 className="text-2xl font-semibold text-white mb-8">Log In</h2>
-          <form>
+          <form onSubmit={handleLogIn}>
           <div className="mb-4">
               <label htmlFor="username" className="block text-white mb-2">Username</label>
               <input type="text" id="username" name="username" className="w-full px-3 py-2 leading-tight text-gray-700 bg-gray-200 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" />
