@@ -43,7 +43,8 @@ loader:({params})=>fetch(`http://localhost:5000/data/${params.id}`)
 
 },
 { path: "/MyPaintingAndDrawing",
-element: <PrivateRoute><MyPaintingAndDrawing></MyPaintingAndDrawing></PrivateRoute>
+element: <PrivateRoute><MyPaintingAndDrawing></MyPaintingAndDrawing></PrivateRoute>,
+loader:()=>fetch('http://localhost:5000/data')
 },
 { path: "/LogIn",
 element: <LogIn></LogIn>

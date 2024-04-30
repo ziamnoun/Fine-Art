@@ -1,9 +1,64 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Banner from '../Banner/Banner';
 import { NavLink, useLoaderData } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Home = () => {
   const AllCraftItem=useLoaderData();
+  const  {
+    _id,
+    imageURL,
+    itemName,
+    subcategoryName,
+    shortDescription,
+    price,
+    rating,
+    customization,
+    processingTime,
+    stockStatus,
+   
+    
+  }=AllCraftItem;
+
+
+  const handleDelete=(_id)=>{
+    console.log(_id)
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/data/${_id}`,{
+          method:'DELETE'
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          console.log(data);
+          if(data.deletedCount>0){
+            Swal.fire({
+          
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success"
+            })
+            .then(() => {
+             
+              window.location.reload();
+            });
+
+          }
+        })
+       
+      }
+    });
+
+  }
+  
 
 
 
@@ -35,6 +90,7 @@ const Home = () => {
               <div className="card-actions justify-end">
                <NavLink to={`/ViewDetails/${item._id}`}> <button className="btn btn-primary bg-red-600">View Details</button></NavLink>
                <NavLink to={`/Update/${item._id}`}> <button className="btn btn-primary bg-red-600">Update Craft</button></NavLink>
+               <button onClick={()=>handleDelete(item._id)} className="btn btn-primary bg-red-600">Delete</button>
               </div>
             </div>
           </div>

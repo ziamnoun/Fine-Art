@@ -18,32 +18,26 @@ const LogIn = () => {
 
 
 
-  const handleGoogleLogIn=()=>{
-    signInWithPopup(auth,googleProvider)
-    .then(result=>{
-      toast.success(Log in Successful);
-      setUser(result.user)
-
-    })
-    .catch(error=>{
-      toast.error('Failed to Sign In');
-    }
-    )
-
-  }
-  const handleGithubLogIn=()=>{
-    signInWithPopup(auth,githubProvider)
-    .then(result=>{
-      toast.success(Log in Successful);
-      setUser(result.user)
-
-
-    })
-    .catch(error=>{
-      toast.error('Failed to Sign In');
-    })
-
-  }
+  const handleGoogleLogIn = () => {
+    signInWithPopup(auth, googleProvider)
+      .then(result => {
+        toast.success('Login Successful');
+        setUser(result.user);
+      })
+      .catch(error => {
+        toast.error('Failed to Sign In');
+      });
+  };
+  const handleGithubLogIn = () => {
+    signInWithPopup(auth, githubProvider)
+      .then(result => {
+        toast.success('Login Successful');
+        setUser(result.user);
+      })
+      .catch(error => {
+        toast.error('Failed to Sign In');
+      });
+  };
 
 
   const handleLogIn = e => {
