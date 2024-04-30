@@ -17,6 +17,7 @@ import Register from "./assets/Register";
 import LogIn from "./assets/LogIn";
 import Update from "./assets/Update/Update";
 import PrivateRoute from "./assets/PrivateRoute";
+import NotFound from "./assets/NotFound/NotFound";
 
 
 
@@ -55,6 +56,11 @@ element: <Register></Register>
 { path:"/Update/:id",
 element: <Update></Update>,
 loader:({params})=>fetch(`http://localhost:5000/data/${params.id}`)
+
+},
+{ path:"/NotFound",
+element:<NotFound></NotFound>
+
 
 },
 
