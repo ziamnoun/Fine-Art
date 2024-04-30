@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Banner from '../Banner/Banner';
 import { NavLink, useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import Blog from '../Blog';
 
 const Home = () => {
   const AllCraftItem=useLoaderData();
@@ -98,7 +99,9 @@ const Home = () => {
          }
 
         </div>
+        <Blog></Blog>
         </div>
+     
     );
 };
 
