@@ -11,7 +11,7 @@ const AllPaintingAndDrawing = () => {
 
   const fetchAllItems = async () => {
     try {
-      const response = await fetch('http://localhost:5000/AllPaintingAndDrawing');
+      const response = await fetch('https://drawing-painting-server.vercel.app/AllPaintingAndDrawing');
       const data = await response.json();
       setItems(data);
     } catch (error) {

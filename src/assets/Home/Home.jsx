@@ -34,7 +34,7 @@ const Home = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/data/${_id}`,{
+        fetch(`https://drawing-painting-server.vercel.app/data/${_id}`,{
           method:'DELETE'
         })
         .then(res=>res.json())

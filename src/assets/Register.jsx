@@ -1,5 +1,5 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import auth from '../firebase/firebase.config';
 import { toast } from 'react-toastify';
@@ -9,6 +9,42 @@ import { ToastContainer } from 'react-toastify';
 
 const Register = () => {
   
+  const [user,setUser]=useState(null)
+  // const handleRegister = e => {
+  //   e.preventDefault();
+  //   const email = e.target.email.value;
+  //   const password = e.target.password.value; 
+  //   console.log(email, password);
+  //   if (password.length < 6) {
+  //     toast.error("Password must be at least 6 characters long.");
+  //     return;
+  //   }
+  
+   
+  //   if (!/[A-Z]/.test(password)) {
+  //     toast.error("Password must contain at least one uppercase letter.");
+  //     return;
+  //   }
+  
+  
+  //   if (!/[a-z]/.test(password)) {
+  //     toast.error("Password must contain at least one lowercase letter.");
+  //     return;
+  //   }
+  
+  
+  //   createUserWithEmailAndPassword(auth, email, password)
+  //     .then(result => {
+  //       console.log(result.user);
+  //       const user={email,uid}
+  //       toast.success('Registration successful');
+        
+  //     })
+  //     .catch(error => {
+  //       console.error(error);
+  //       toast.error('Register error')
+  //     });
+  // };
   const handleRegister = e => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -19,29 +55,49 @@ const Register = () => {
       return;
     }
   
-   
     if (!/[A-Z]/.test(password)) {
       toast.error("Password must contain at least one uppercase letter.");
       return;
     }
-  
   
     if (!/[a-z]/.test(password)) {
       toast.error("Password must contain at least one lowercase letter.");
       return;
     }
   
-  
     createUserWithEmailAndPassword(auth, email, password)
       .then(result => {
         console.log(result.user);
+        setUser(result.user)
         toast.success('Registration successful');
+        fetch('https://drawing-painting-server.vercel.app/data',{
+          method:'POST',
+          headers:{
+            'content-type':'application/json'
+          },
+          body: JSON.stringify(user)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          console.log(data)
+          if(data.insertedId){
+            toast.success("Successfully Added!");
+          }
+        })
+    
       })
       .catch(error => {
         console.error(error);
-        toast.error('Register error')
+        if (error.code === 'auth/email-already-in-use') {
+          toast.error('Email address is already in use.');
+        } else if (error.code === 'auth/invalid-email') {
+          toast.error('Invalid email address.');
+        } else {
+          toast.error('Registration failed. Please try again later.');
+        }
       });
   };
+  
 
 
 
@@ -64,6 +120,7 @@ const Register = () => {
               <label htmlFor="password" className="block text-white mb-2">Password</label>
               <input type="password" id="password" name="password" className="w-full px-3 py-2 leading-tight text-gray-700 bg-gray-200 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" />
             </div>
+             
             
             <div className="mb-6">
               <button type="submit" className="w-full px-4 py-2 text-white bg-red-500 rounded hover:bg-red-600 focus:outline-none focus:bg-red-600">Register</button>

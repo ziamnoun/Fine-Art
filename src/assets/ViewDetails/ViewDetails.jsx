@@ -11,13 +11,14 @@ const ViewDetails = () => {
 
   const fetchItemDetails = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/data/${id}`);
+      const response = await fetch(`https://drawing-painting-server.vercel.app/data/${id}`);
       const data = await response.json();
       setItem(data);
     } catch (error) {
       console.error('Error:', error);
     }
   };
+  console.log(item)
 
   return (
     <div className="text-white">

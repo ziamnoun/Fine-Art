@@ -30,7 +30,7 @@ const router = createBrowserRouter([
     children:[
       { path: "/",
       element: <Home></Home>,
-      loader:()=>fetch('http://localhost:5000/data')
+      loader:()=>fetch('https://drawing-painting-server.vercel.app/data')
     },
     { path: "/AddCraftItem",
     element: <PrivateRoute><AddCraftItem></AddCraftItem></PrivateRoute>
@@ -40,12 +40,12 @@ const router = createBrowserRouter([
 },
 { path: "/ViewDetails/:id",
 element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
-loader:({params})=>fetch(`http://localhost:5000/data/${params.id}`)
+loader:({params})=>fetch(`https://drawing-painting-server.vercel.app/data/${params.id}`)
 
 },
 { path: "/MyPaintingAndDrawing",
 element: <PrivateRoute><MyPaintingAndDrawing></MyPaintingAndDrawing></PrivateRoute>,
-loader:()=>fetch('http://localhost:5000/data')
+loader:()=>fetch('https://drawing-painting-server.vercel.app/data')
 },
 { path: "/LogIn",
 element: <LogIn></LogIn>
@@ -55,7 +55,7 @@ element: <Register></Register>
 },
 { path:"/Update/:id",
 element: <Update></Update>,
-loader:({params})=>fetch(`http://localhost:5000/data/${params.id}`)
+loader:({params})=>fetch(`https://drawing-painting-server.vercel.app/data/${params.id}`)
 
 },
 { path:"/NotFound",

@@ -35,7 +35,7 @@ const AddCraftItem = () => {
       
     };
     console.log(craftItemData)
-    fetch('http://localhost:5000/data',{
+    fetch('https://drawing-painting-server.vercel.app/data',{
       method:'POST',
       headers:{
         'content-type':'application/json'

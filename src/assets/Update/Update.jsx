@@ -52,7 +52,7 @@ const Update = () => {
       
     };
     console.log(craftData)
-    fetch(`http://localhost:5000/data/${_id}`,{
+    fetch(`https://drawing-painting-server.vercel.app/data/${_id}`,{
       method:'PUT',
       headers:{
         'content-type':'application/json'
