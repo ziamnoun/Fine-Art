@@ -1,8 +1,10 @@
-# React + Vite
+1.Its a Art related web site where you can find various art.
+2.Here you can add,update and delete a art.
+Log in system was added to this
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Technology used- Technologies: HTML, CSS, JavaScript, React, Node.js, Express.js, MongoDB
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To clone- 1.Open teminal
+2.cd path/to/your/directory 
+3.git clone https://github.com/ziamnoun/Fine-Art
+4.cd Fine-Art
